@@ -264,7 +264,7 @@ class _ChatListState extends State<ChatList>
           controller: widget.scrollController,
           keyboardDismissBehavior: widget.keyboardDismissBehavior,
           physics: widget.scrollPhysics,
-          reverse: true,
+          reverse: false,
           slivers: [
             if (widget.bottomWidget != null)
               SliverToBoxAdapter(child: widget.bottomWidget),
