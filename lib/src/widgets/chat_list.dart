@@ -177,8 +177,9 @@ class _ChatListState extends State<ChatList>
             // size after new message was added.
             Future.delayed(const Duration(milliseconds: 100), () {
               if (widget.scrollController.hasClients) {
+                final position = widget.scrollController.position.maxScrollExtent;
                 widget.scrollController.animateTo(
-                  0,
+                  position,
                   duration: const Duration(milliseconds: 200),
                   curve: Curves.easeInQuad,
                 );
