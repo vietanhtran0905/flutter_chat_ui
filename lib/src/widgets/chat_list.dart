@@ -169,6 +169,17 @@ class _ChatListState extends State<ChatList>
         final oldMessage = oldItem['message']! as types.Message;
         final message = item['message']! as types.Message;
 
+        Future.delayed(const Duration(milliseconds: 100), () {
+              if (widget.scrollController.hasClients) {
+                final position = widget.scrollController.position.maxScrollExtent;
+                widget.scrollController.animateTo(
+                  position,
+                  duration: const Duration(milliseconds: 200),
+                  curve: Curves.easeInQuad,
+                );
+              }
+            });
+        
         // Compare items to fire only on newly added messages.
         if (oldMessage.id != message.id) {
           // Run only for sent message.
